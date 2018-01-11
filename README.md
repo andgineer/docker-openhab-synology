@@ -1,4 +1,4 @@
-Docker Alpine image of [openHAB](http://openhab.org/) with settings for 
+Docker Alpine [image](https://hub.docker.com/r/masterandrey/docker-openhab-synology/) of [openHAB](http://openhab.org/) with settings for
 Amazon Dash Button to use on Synology.
 
 Amazon Dash Button OpenHAB binding needs that you use `docker run` with command line options:
