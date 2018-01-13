@@ -15,6 +15,11 @@ To do so official OpenHAB doc recommends you use `docker run` with command line 
 But in Synology Docker's command line is hidden and there are no such settings in Synology GUI.
 So we have to add additional rights inside the Docker container.
 
+They do have [openHAB package for Synology](https://docs.openhab.org/installation/synology.html).
+But you have to mess around with settings for sniffing network and I do not want to do 
+that on my NAS. It's very stable now and I do not want to break that.
+
+
 ### How to use it
 
 Just as recommended for [OpenHAB official docker image](https://hub.docker.com/r/openhab/openhab/#running-from-command-line).
