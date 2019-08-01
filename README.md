@@ -1,9 +1,18 @@
 Docker Alpine [image](https://cloud.docker.com/u/andgineer/repository/docker/andgineer/openhab-synology) of [openHAB](http://openhab.org/) with settings for
 Amazon Dash Button to use on Synology.
 
-### Why do you need this image and while official one is not good enough for Synology
+### How to use it
 
-Amazon Dash Button binding sniffs network.
+    docker run --network=host --privileged angineer/openhab-synology
+    
+If you run it locally the server will be on `http://localhost:8080`.
+
+In case of Synology `network` and `priveliged` options should be configured in Synology GUI, 
+[see detailes](https://sorokin.engineer/posts/en/amazon_dash_button_hack_install.html) - `execute container using high privilige` and `Use the same network as Docker host`.
+
+### Why do you need this image and why the official one is not good enough for Synology
+
+Amazon Dash Button OpenHAB binding sniffs network.
 
 OpenHAB is running under linux account without root privileges so you have to add some
 additional rights to allow this sniff.
@@ -12,23 +21,14 @@ To do so official OpenHAB doc recommends you use `docker run` with command line 
 
     --cap-add NET_ADMIN --cap-add NET_RAW
 
-But in Synology Docker's command line is hidden and there are no such settings in Synology GUI.
+Detailes are on [OpenHAB official docker image](https://hub.docker.com/r/openhab/openhab/#running-from-command-line).
+
+But in case of Synology, Docker's command line is hidden and there are no such settings in Synology GUI.
 So we have to add additional rights inside the Docker container.
 
 They do have [openHAB package for Synology](https://docs.openhab.org/installation/synology.html).
-But you have to mess around with settings for sniffing network and I do not want to do 
-that on my NAS. It's very stable now and I do not want to break that.
-
-
-### How to use it
-
-Just as recommended for [OpenHAB official docker image](https://hub.docker.com/r/openhab/openhab/#running-from-command-line).
-
-Do not forget to run container as privileged and in host network:
-
-    docker run --network=host --privileged ...
-
-In case of Synology this is GUI options, described, for example, [here](https://sorokin.engineer/posts/en/amazon_dash_button_hack_install.html) - `execute container using high privilige` and `Use the same network as Docker host`.
+But to use this package you have to mess with Linux settings for sniffing network, as a result you could
+break something in NAS base functionality. 
 
 ### Implementation details
 
