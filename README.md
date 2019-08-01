@@ -1,4 +1,4 @@
-Docker Alpine [image](https://hub.docker.com/r/masterandrey/docker-openhab-synology/) of [openHAB](http://openhab.org/) with settings for
+Docker Alpine [image](https://cloud.docker.com/u/andgineer/repository/docker/andgineer/openhab-synology) of [openHAB](http://openhab.org/) with settings for
 Amazon Dash Button to use on Synology.
 
 ### Why do you need this image and while official one is not good enough for Synology
@@ -28,7 +28,7 @@ Do not forget to run container as privileged and in host network:
 
     docker run --network=host --privileged ...
 
-In case of Synology this is GUI options, described, for example, [here](http://masterandrey.com/posts/ru/amazon_dash_button_hack_install/) - `execute container using high privilige` and `Use the same network as Docker host`.
+In case of Synology this is GUI options, described, for example, [here](https://sorokin.engineer/posts/en/amazon_dash_button_hack_install.html) - `execute container using high privilige` and `Use the same network as Docker host`.
 
 ### Implementation details
 
