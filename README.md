@@ -21,7 +21,7 @@ To do so official OpenHAB doc recommends you use `docker run` with command line 
 
     --cap-add NET_ADMIN --cap-add NET_RAW
 
-Detailes are on [OpenHAB official docker image](https://hub.docker.com/r/openhab/openhab/#running-from-command-line).
+Details are on [OpenHAB official docker image](https://hub.docker.com/r/openhab/openhab/#running-from-command-line).
 
 But in case of Synology, Docker's command line is hidden and there are no such settings in Synology GUI.
 So we have to add additional rights inside the Docker container.
