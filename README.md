@@ -1,3 +1,5 @@
+[![Docker Automated build](https://img.shields.io/docker/image-size/andgineer/openhab-synology)](https://hub.docker.com/r/andgineer/openhab-synology)
+
 Docker Alpine [image](https://cloud.docker.com/u/andgineer/repository/docker/andgineer/openhab-synology) of [openHAB](http://openhab.org/) with settings for
 Amazon Dash Button to use on Synology.
 
@@ -10,40 +12,42 @@ If you run it locally the server will be on `http://localhost:8080`.
 In case of Synology `network` and `priveliged` options should be configured in Synology GUI, 
 [see detailes](https://sorokin.engineer/posts/en/amazon_dash_button_hack_install.html) - `execute container using high privilige` and `Use the same network as Docker host`.
 
-### Why do you need this image and why the official one is not good enough for Synology
+### Why Use This Image and Why the Official One May Not Be Suitable for Synology
 
 Amazon Dash Button OpenHAB binding sniffs network.
 
-OpenHAB is running under linux account without root privileges so you have to add some
-additional rights to allow this sniff.
+OpenHAB is running under linux account without root privileges so you have to grant
+additional permissions to enable network sniffing.
 
-To do so official OpenHAB doc recommends you use `docker run` with command line options:
+The official OpenHAB documentation recommends using docker run with the following command line options:
 
     --cap-add NET_ADMIN --cap-add NET_RAW
 
-Details are on [OpenHAB official docker image](https://hub.docker.com/r/openhab/openhab/#running-from-command-line).
+You can find more details in the [OpenHAB official docker image](https://hub.docker.com/r/openhab/openhab/#running-from-command-line).
 
-But in case of Synology, Docker's command line is hidden and there are no such settings in Synology GUI.
-So we have to add additional rights inside the Docker container.
+However, when it comes to Synology, the Docker command line is hidden, 
+and there are no such settings available in the Synology GUI. 
+Therefore, you need to add these additional permissions within the Docker container.
 
-They do have [openHAB package for Synology](https://docs.openhab.org/installation/synology.html).
-But to use this package you have to mess with Linux settings for sniffing network, as a result you could
-break something in NAS base functionality. 
+Synology does provide an [openHAB package for Synology](https://docs.openhab.org/installation/synology.html). 
+However, to use this package, you may need to tweak Linux settings for network sniffing, 
+which could potentially affect the NAS's core functionality.
 
-### Implementation details
+### Implementation Details
 
-We have to add additional capabilities to java:
+To enable network sniffing, we need to grant additional capabilities to Java. 
+You can achieve this with the following command:
 
     setcap 'cap_net_raw,cap_net_admin=+eip cap_net_bind_service=+ep' $(realpath /usr/bin/java)
 
 After that we will have another problem:
 [can not run java after granting posix capabilities](https://bugs.java.com/view_bug.do?bug_id=7157699).
 
-To fix it I added `ln` into Dockerfile:
+To resolve this issue, I added a symbolic link (ln) into the Dockerfile as follows:
 
     ln -s /usr/lib/jvm/java-1.8-openjdk/lib/amd64/jli/libjli.so /usr/lib/
 
-#### How to find all this paths
+#### How to Locate These Paths
 
 Check libraries loading problems:
 
