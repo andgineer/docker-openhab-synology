@@ -29,7 +29,7 @@ However, when it comes to Synology, the Docker command line is hidden,
 and there are no such settings available in the Synology GUI. 
 Therefore, you need to add these additional permissions within the Docker container.
 
-Synology does provide an [openHAB package for Synology](https://docs.openhab.org/installation/synology.html). 
+Synology does provide an [openHAB package for Synology](https://www.openhab.org/docs/installation/synology.html). 
 However, to use this package, you may need to tweak Linux settings for network sniffing, 
 which could potentially affect the NAS's core functionality.
 
