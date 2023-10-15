@@ -3,7 +3,7 @@
 Docker Alpine [image](https://cloud.docker.com/u/andgineer/repository/docker/andgineer/openhab-synology) of [openHAB](http://openhab.org/) with settings for
 Amazon Dash Button to use on Synology.
 
-### How to use it
+### Usage
 
     docker run --network=host --privileged angineer/openhab-synology
     
