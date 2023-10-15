@@ -1,6 +1,6 @@
 [![Docker Automated build](https://img.shields.io/docker/image-size/andgineer/openhab-synology)](https://hub.docker.com/r/andgineer/openhab-synology)
 
-Docker Alpine [image](https://cloud.docker.com/u/andgineer/repository/docker/andgineer/openhab-synology) of [openHAB](http://openhab.org/) with settings for
+Docker Alpine [image](https://hub.docker.com/r/andgineer/openhab-synology) of [openHAB](http://openhab.org/) with settings for
 Amazon Dash Button to use on Synology.
 
 ### Usage
