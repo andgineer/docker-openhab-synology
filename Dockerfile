@@ -1,4 +1,4 @@
-FROM openhab/openhab:4.0.3-alpine
+FROM openhab/openhab:4.2.0-alpine
 
 RUN apk add libcap \
   && setcap 'cap_net_raw,cap_net_admin,cap_net_bind_service=+eip' \

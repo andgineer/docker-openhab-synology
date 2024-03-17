@@ -5,7 +5,7 @@ Amazon Dash Button to use on Synology.
 
 ### Usage
 
-    docker run --network=host --privileged angineer/openhab-synology
+    docker run --network=host --privileged andgineer/openhab-synology
     
 If you run it locally the server will be on `http://localhost:8080`.
 
